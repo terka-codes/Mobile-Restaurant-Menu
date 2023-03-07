@@ -4,60 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
     <title>Restaurant Menu Mobile</title>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <header>
+            <header class="padding">
                 <h1>Jimmy’s Diner</h1>
                 <h4>The best burgers and pizzas in town.</h4>
             </header>
-            <main>
+            <main class="padding">
                <section class="orders">
-                    <div class="menu-item">
-                        <img src="" alt="">
+                    <div class="menu-item" id="pizza">
+                        <p>🍕</p>
                         <div class="menu-item-text">
                             <h3>Pizza</h3>
                             <p>pepperoni, mushrom, mozarella</p>
                             <h5>$14</h5>
                         </div>
-                        <button>+</button>
+                        <button id="pizza-plus-btn">+</button>
                     </div>
-                    <div class="menu-item">
-                        <img src="" alt="">
+                    <div class="menu-item" id="hamburger">
+                        <p>🍔</p>
                         <div class="menu-item-text">
                             <h3>Hamburger</h3>
                             <p>beef, cheese, lettuce</p>
                             <h5>$12</h5>
                         </div>
-                        <button>+</button>
+                        <button id="hamburger-plus-btn">+</button>
                     </div>
-                    <div class="menu-item">
-                        <img src="" alt="">
+                    <div class="menu-item" id="beer">
+                        <p>🍺</p>
                         <div class="menu-item-text">
                             <h3>Beer</h3>
                             <p>grain, hops, yeast, water</p>
                             <h5>$12</h5>
                         </div>
-                        <button>+</button>
+                        <button id="beer-plus-btn">+</button>
                     </div>
                </section>
                <!-- Insert order summary into js -->
-               <section class="order-summary">
-                <h2>Your order</h2>
-                <!-- this is gonna be reusable component -->
-                <div class="item-container">
-                    <h6 class="item-name"></h6>
-                    <p class="remove"></p>
-                    <p class="quantiti"></p>
-                    <h6 class="price"></h6>
-                </div>
-                <hr>
-                <h2></h2>
-                <button>Complete order</button>
+               <section class="order-summary" id="order-summary">
                </section>
+               <div class="payment-info" id="payment-info">
+                <h3>Enter your card details</h3>
+                <div class="input-box">
+                    <label for="cardNumber" class="hidden">Your name</label>
+                    <input type="text" id="Name" required>
+                    <span>Your name</span>
+                </div>
+                <div class="input-box">
+                    <label for="cardNumber" class="hidden">Card number</label>
+                    <input type="text" id="cardNumber" autocomplete="off" required>
+                    <span>Card number</span>
+                </div>
+                <div class="input-box">
+                    <label for="cardNumber" class="hidden">CVV number</label>
+                    <input type="text" id="CVV" autocomplete="off" required>
+                    <span>CVV number</span>
+                </div>
+                <button>Pay $24</button>
+               </div>
             </main>
             
         </div>
