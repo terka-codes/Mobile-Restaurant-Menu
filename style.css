@@ -1,193 +1,275 @@
 /* =========== setting variables ============ */
-:root{
-    --header-color: #FFF;
-    --card-background: #FFF;
-    --gray-font: #8B8B8B;
-    --plus-button-color: #3C3C3C;
-    --plus-button-outline: #DEDEDE;
-    --plus-button-hover: #efefef;
+:root {
+  --header-color: #fff;
+  --card-background: #fff;
+  --gray-font: #8b8b8b;
+  --plus-button-color: #3c3c3c;
+  --plus-button-outline: #dedede;
+  --plus-button-hover: #efefef;
+  --green-button: #16db99;
+  --green-button-hover: #0fc488;
+  --green-button-shadow: #14d5956e;
 }
 
 /* =========== card position and design ============ */
-html, body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    background-color: black;
-    height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: black;
+  height: 100%;
 }
 
-main{
-    position: relative;
+main {
+  position: relative;
 }
 
-.padding{
-    padding: 2.5em;
+.padding {
+  padding: 2.5em;
 }
 
-.container{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card{
-    width: 60%;
-    min-width: 400px;
-    max-width: 550px;
-    min-height: 90%;
-    max-height: 100%;
-    background-color: var(--card-background);
+.card {
+  width: 60%;
+  min-width: 400px;
+  max-width: 550px;
+  min-height: 90%;
+  max-height: 100%;
+  background-color: var(--card-background);
 }
 
 /* =========== header component ============ */
-header{
-    box-sizing: border-box;
-    background-image: url("images/bg imgBurger.png");
-    background-size: cover;
-    color: var(--header-color);
+header {
+  box-sizing: border-box;
+  background-image: url("images/bg imgBurger.png");
+  background-size: cover;
+  color: var(--header-color);
 }
 
-h1, h4 {
-    margin: 0;
-    font-weight: 300;
+h1,
+h4 {
+  margin: 0;
+  font-weight: 300;
 }
 
-h1{
-    font-size: 1.8em;
+h1 {
+  font-size: 1.8em;
 }
 
-h4{
-    font-size: 0.8em;
+h4 {
+  font-size: 0.8em;
 }
 
 /* =========== main component ============ */
-.menu-item{
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    border-bottom: 1px solid var(--plus-button-outline);
-    align-items: center;
+.menu-item {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  border-bottom: 1px solid var(--plus-button-outline);
+  align-items: center;
 }
 
-.menu-item > p{
-    font-size: 4em;
-    margin: 0;
-    opacity: 0.72;
+.menu-item > p {
+  font-size: 4em;
+  margin: 0;
+  opacity: 0.72;
 }
 
-.menu-item-text{
-    padding: 0 0 0 1em;
-    margin: 2em 0;
+.menu-item-text {
+  padding: 0 0 0 1em;
+  margin: 2em 0;
 }
 
-.menu-item-text > *{
-    margin: 0;
+.menu-item-text > * {
+  margin: 0;
 }
 
-.menu-item-text p{
-    font-size: 0.8em;
-    color: var(--gray-font);
-    margin: 0.4em 0;
+.menu-item-text p {
+  font-size: 0.8em;
+  color: var(--gray-font);
+  margin: 0.4em 0;
 }
 
 /* =========== plus button ============ */
-.menu-item button{
-    cursor: pointer;
-    justify-self: end;
-    background-color: var(--card-background);
-    border: 1px solid var(--plus-button-outline);
-    padding: 6px 13px 7px 13px;
-    border-radius: 50%;
-    font-family: 'Inter', sans-serif;
-    font-weight: 200;
-    font-size: 1.2em;
-    color: var(--plus-button-color);
+.menu-item button {
+  cursor: pointer;
+  justify-self: end;
+  background-color: var(--card-background);
+  border: 1px solid var(--plus-button-outline);
+  padding: 6px 13px 7px 13px;
+  border-radius: 50%;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  font-size: 1.2em;
+  color: var(--plus-button-color);
 }
 
-.menu-item button:hover{
-    background-color: var(--plus-button-hover);
-    transition: .3s;
+.menu-item button:hover {
+  background-color: var(--green-button-hover);
+  transition: 0.3s;
 }
 
 /* =========== Order summary ============ */
-.order-summary h2{
-    margin: 1.5em 0;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: 600;
+.order-summary h2 {
+  margin: 1.5em 0;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
-.order-summary h3, h4, h6{
-    margin: 0;
+.order-summary h3,
+h4,
+h6 {
+  margin: 0;
 }
 
-.flex{
-    display: flex;
-    align-items: center;
+.flex {
+  display: flex;
+  align-items: center;
 }
 
-.space-between{
-    justify-content: space-between;
+.space-between {
+  justify-content: space-between;
 }
 
-.item-container h4{
-    font-size: 0.9em;
-    font-weight: 600;
+.item-container h4 {
+  font-size: 0.9em;
+  font-weight: 600;
 }
 
-.item-container p{
-    font-size: 0.8em;
-    font-weight: 300;
-    margin: 0.3em 0;
+.item-container p {
+  font-size: 0.8em;
+  font-weight: 300;
+  margin: 0.3em 0;
 }
 
-.item-container .remove{
-    font-size: 0.8em;
-    color: var(--gray-font);
-    margin: 0 10px;
-    cursor: pointer;
+.item-container .remove {
+  font-size: 0.8em;
+  color: var(--gray-font);
+  margin: 0 10px;
+  cursor: pointer;
 }
 
-hr{
-    border: none;
-    height: 2px;
-    background-color: var(--plus-button-outline);
+hr {
+  border: none;
+  height: 2px;
+  background-color: var(--plus-button-outline);
 }
 
 /* =========== complete order button ============ */
 .price-summary button {
-    cursor: pointer;
-    width: 100%;
-    background: #16DB99;
-    box-shadow: 0px 1px 4px 1px #14d5956e;
-    border-radius: 6px;
-    border: none;
-    padding: 1em 0;
-    color: var(--card-background);
-    font-weight: 600;
-    font-size: 1em;
-    margin-top: 1.6em;
+  cursor: pointer;
+  width: 100%;
+  background: var(--green-button);
+  box-shadow: 0px 1px 4px 1px var(--green-button-shadow);
+  border-radius: 6px;
+  border: none;
+  padding: 1em 0;
+  color: var(--card-background);
+  font-weight: 600;
+  font-size: 1em;
+  margin-top: 1.6em;
 }
 
 /* =========== card payment info ============ */
-.payment-info{
-    position: absolute;
-    margin: auto;
-    top: 80px;
-    left: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--card-background);
-    width: 80%;
-    filter: drop-shadow(0.45em 0.45em 15em rgba(0, 0, 0, 0.5));
-    border-radius: 0.5em;
-    padding: 2em;
+.clear {
+  width: 100%;
+  height: 100%;
+  background-color: none;
+}
+
+.payment-info {
+  position: absolute;
+  margin: auto;
+  top: 80px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3em;
+  background-color: var(--card-background);
+  width: 75%;
+  filter: drop-shadow(0.45em 0.45em 15em rgba(0, 0, 0, 0.5));
+  border-radius: 0.5em;
+  padding: 2em;
+}
+
+.payment-info h3 {
+  margin: 0.8em auto;
+  font-size: 1.4em;
+  font-weight: 800;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.7em 1em 0.5em 1em;
+  border: 1px solid var(--gray-font);
+  border-radius: 0.3em;
+  font-size: 0.9em;
+  font-weight: 300;
+  outline: none;
+}
+
+.input-box span {
+  position: absolute;
+  left: 0;
+  padding: 0.7em 1em 0.5em 1em;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: var(--gray-font);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.input-box input:focus ~ span,
+.input-box input:valid ~ span {
+  transform: translateX(0.8em) translateY(-0.8em);
+  font-size: 0.75em;
+  padding: 0.2em 0.5em 0 0.5em;
+  color: var(--card-background);
+  transition: 0.3s;
+  background: var(--green-button);
+  border-radius: 0.3em;
+  letter-spacing: 0.1em;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border: 1px solid var(--green-button);
+  transition: 0.3s;
+}
+
+.payment-info button {
+  cursor: pointer;
+  width: 100%;
+  background: var(--green-button);
+  box-shadow: 0px 1px 4px 1px var(--green-button-shadow);
+  border-radius: 6px;
+  border: none;
+  padding: 1em 0;
+  color: var(--card-background);
+  font-size: 1em;
+  margin-top: 1.4em;
+}
+
+.payment-info button:hover {
+  background: var(--green-button-hover);
+  transition: 0.3s;
 }
 
 /* =========== hidden ============ */
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }

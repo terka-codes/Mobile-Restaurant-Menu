@@ -93,4 +93,8 @@ function renderOrderItems(name, quantity, price) {
 
 function renderPaymentWindow(price){
     console.log("Payment window", price)
+    document.getElementById("clear-div") // add toggle hidden class
+    // make the payment window apear and add the buton with the price through JS
+    // make that so clickin gon the clear div maked it dissapear
+    // and clicking on the payment button renders sucessful message
 }
