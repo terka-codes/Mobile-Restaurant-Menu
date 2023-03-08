@@ -21,7 +21,7 @@
                 <h4>The best burgers and pizzas in town.</h4>
             </header>
             <main class="padding">
-               <section class="orders">
+               <section class="orders" id="orders">
                     <div class="menu-item" id="pizza">
                         <p>🍕</p>
                         <div class="menu-item-text">
@@ -50,31 +50,32 @@
                         <button id="beer-plus-btn">+</button>
                     </div>
                </section>
-               <!-- Insert order summary into js -->
+               <!-- Insert order summary from js -->
                <section class="order-summary" id="order-summary">
                </section>
-               <div class="clear hidden" id="clear-div">
-                    <!-- dá to do pruhlednýho divu diky kterýmu pak muzu hezky skliknout dolu z okýnka jako pri zavrnei a taky nedovoli klikat na veci po tím -->
-                    <form class="payment-info" id="payment-info">
+                <!-- Insert thank you alert from js -->
+               <section class="thank-you-alert" id="thank-you-alert">
+                </section>
+                
+                    <form class="payment-info hidden" id="payment-info">
                         <h3>Enter your card details</h3>
                         <div class="input-box">
-                            <label for="cardNumber" class="hidden">Full name</label>
-                            <input type="text" id="Name" required>
-                            <span>Your name</span>
+                            <label for="full-name" class="hidden">Full name</label>
+                            <input type="text" name="full-name" id="full-name" autocomplete="off" required>
+                            <span>Your full name</span>
                         </div>
                         <div class="input-box">
                             <label for="cardNumber" class="hidden">Card number</label>
-                            <input type="text" id="cardNumber" autocomplete="off" required>
+                            <input type="text" name="cardNumber" id="cardNumber" autocomplete="off" required>
                             <span>Card number</span>
                         </div>
                         <div class="input-box">
-                            <label for="cardNumber" class="hidden">CVV number</label>
-                            <input type="text" id="CVV" autocomplete="off" required>
+                            <label for="card-CVV" class="hidden">CVV number</label>
+                            <input type="text" name="card-CVV" id="CVV" autocomplete="off" required>
                             <span>CVV number</span>
                         </div>
-                        <button>Pay $24</button>
+                        <div id="pay-button"></div>
                     </form>
-               </div>
                
             </main>
             
