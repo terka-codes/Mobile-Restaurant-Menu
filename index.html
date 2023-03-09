@@ -51,7 +51,20 @@
                     </div>
                </section>
                <!-- Insert order summary from js -->
-               <section class="order-summary" id="order-summary">
+               <section class="order-summary-box">
+                    <div class="order-summary hidden" id="order-summary">
+                        <h2>Your order:</h2>
+                        <div id="pizza-item"></div>
+                        <div id="hamburger-item"></div>
+                        <div id="beer-item"></div>
+                        <div class="price-summary">
+                            <div class="price-summary-text flex space-between">
+                                <h3>Total price:</h3>
+                                <h3 id="total-price"></h3>
+                            </div>
+                            <button id="complete-order-btn">Complete order</button>
+                        </div>
+                    </div>
                </section>
                 <!-- Insert thank you alert from js -->
                <section class="thank-you-alert" id="thank-you-alert">

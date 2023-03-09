@@ -1,26 +1,21 @@
 const orderSummary = document.getElementById("order-summary")
 const paymentInfo = document.getElementById("payment-info")
 
-let pizza = 0
-let hamburger = 0
-let beer = 0
+let pizzaCount = 0
+let hamburgerCount = 0
+let beerCount = 0
 
 document.addEventListener("click", function(e){
     if(e.target.id === "pizza-plus-btn" 
     || e.target.id === "hamburger-plus-btn"
     || e.target.id === "beer-plus-btn"){
         handlePlusItem(e.target.id)
-    } else if(e.target.id === "remove-Pizza"){
-        pizza = 0
-        renderTotalPrice()
-    } else if(e.target.id === "remove-Hamburger"){
-        hamburger = 0
-        renderTotalPrice()
-    } else if(e.target.id === "remove-Beer"){
-        beer = 0
-        renderTotalPrice()
+    } else if(e.target.id === "remove-Pizza"
+    || e.target.id === "remove-Hamburger"
+    || e.target.id === "remove-Beer"){
+        removeItem(e.target.id)
     } else if(e.target.id === "complete-order-btn"){
-        renderPaymentWindow(pizza * 14 + (hamburger + beer) * 12)
+        renderPaymentWindow(pizzaCount * 14 + (hamburgerCount + beerCount) * 12)
     }
 })
 
@@ -30,43 +25,39 @@ paymentInfo.addEventListener("submit", function(e){
 
     const formData = new FormData(paymentInfo)
     const firstName = formData.get("full-name").split(" ")[0] // get the first name
-    renderThankYouAlert(firstName, pizza, hamburger, beer, pizza * 14 + (hamburger + beer) * 12)
+    renderThankYouAlert(firstName, pizzaCount, hamburgerCount, beerCount, pizzaCount * 14 + (hamburgerCount + beerCount) * 12)
 })
 
 function handlePlusItem(itemId){
     if(itemId === "pizza-plus-btn"){
-        pizza++
+        pizzaCount++
     } else if(itemId === "hamburger-plus-btn"){
-        hamburger++
+        hamburgerCount++
     } else if(itemId === "beer-plus-btn"){
-        beer++
+        beerCount++
+    }
+    renderTotalPrice()
+}
+
+function removeItem(itemId){
+    if(itemId === "remove-Pizza"){
+        pizzaCount = 0
+    } else if(itemId === "remove-Hamburger"){
+        hamburgerCount = 0
+    } else if(itemId === "remove-Beer"){
+        beerCount = 0
     }
     renderTotalPrice()
 }
 
 function renderTotalPrice(){
-    let pizzaItem
-    let hamburgerItem
-    let beerItem
+    // render the order items
+    let pizzaItem = renderOrderItems("Pizza", pizzaCount, 14)
+    let hamburgerItem = renderOrderItems("Hamburger", hamburgerCount, 12)
+    let beerItem = renderOrderItems("Beer", beerCount, 12)
 
-    // render the order items if the quantity is greater than 0 for each item
-    if(pizza > 0){
-        pizzaItem = renderOrderItems("Pizza", pizza, 14)
-    } else {
-        pizzaItem = ""
-    }
-    if(hamburger > 0){
-        hamburgerItem = renderOrderItems("Hamburger", hamburger, 12)
-    } else {
-        hamburgerItem = ""
-    }
-    if(beer > 0){
-        beerItem = renderOrderItems("Beer", beer, 12)
-    } else {
-        beerItem = ""
-    }
 
-    // render the order summary
+   /*  // render the order summary
     orderSummary.innerHTML = `
         <h2>Your order:</h2>
         ${pizzaItem}
@@ -76,30 +67,41 @@ function renderTotalPrice(){
         <div class="price-summary">
             <div class="price-summary-text flex space-between">
                 <h3>Total price:</h3>
-                <h3>$${pizza * 14 + (hamburger + beer) * 12}</h3>
+                <h3>$${pizzaCount * 14 + (hamburgerCount + beerCount) * 12}</h3>
             </div>
             <button id="complete-order-btn">Complete order</button>
         </div>
-    `
+    ` */
+
+    document.getElementById("pizza-item").innerHTML = `${pizzaItem}`
+    document.getElementById("hamburger-item").innerHTML = `${hamburgerItem}`
+    document.getElementById("beer-item").innerHTML = `${beerItem}`
+    document.getElementById("total-price").innerHTML = `$${pizzaCount * 14 + (hamburgerCount + beerCount) * 12}`
+
+    orderSummary.classList.remove("hidden")
+
     // if the order is empty, remove the order summary
-    if(pizza + hamburger + beer === 0){
-        orderSummary.innerHTML = ""
+    if(pizzaCount + hamburgerCount + beerCount === 0){
+        orderSummary.classList.add("hidden")
     }
     
 }
 
 // render the order items one by one
 function renderOrderItems(name, quantity, price) {
-    item = `
-    <div class="item-container flex space-between">
-        <h4 class="item-name">${name}</h4>
-        <div class="item-container-price flex">
-            <p class="quantity">${quantity}x</p>
-            <p class="remove" id="remove-${name}">remove</p>
-            <h4 class="price">$${price * quantity}</h4>
-        </div>
-    </div>`
-    return item
+    if(quantity > 0){
+        return `
+        <div class="item-container flex space-between">
+            <h4 class="item-name">${name}</h4>
+            <div class="item-container-price flex">
+                <p class="quantity">${quantity}x</p>
+                <p class="remove" id="remove-${name}">remove</p>
+                <h4 class="price">$${price * quantity}</h4>
+            </div>
+        </div>`
+    } else {
+        return ""
+    }
 }
 
 // render the payment window
@@ -139,22 +141,10 @@ function renderThankYouAlert(name, pizza, hamburger, beer, total){
     document.getElementById("order-summary").classList.add("hidden")
     paymentInfo.classList.add("hidden")
 
-    // render the order items if the quantity is greater than 0 for each item
-    if(pizza > 0){
-        pizzaItem = renderSummaryItems("Pizza", pizza, 14)
-    } else {
-        pizzaItem = ""
-    }
-    if(hamburger > 0){
-        hamburgerItem = renderSummaryItems("Hamburger", hamburger, 12)
-    } else {
-        hamburgerItem = ""
-    }
-    if(beer > 0){
-        beerItem = renderSummaryItems("Beer", beer, 12)
-    } else {
-        beerItem = ""
-    }
+    // render the order items
+    let pizzaItem = renderSummaryItems("Pizza", pizzaCount, 14)
+    let hamburgerItem = renderSummaryItems("Hamburger", hamburgerCount, 12)
+    let beerItem = renderSummaryItems("Beer", beerCount, 12)
 
     // render the thank you alert into the DOM
     document.getElementById("thank-you-alert").innerHTML = `
